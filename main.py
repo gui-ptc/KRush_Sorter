@@ -21,11 +21,14 @@ def sort_display():
     num_slots = STAGES.get(fase, 0)
 
     chosen_hero = random.choice(HEROES)
-    tower_upgrade_prior, upgrade = tower_sorter(num_slots)
+    tower_placement, upgrade = tower_sorter(num_slots)
 
     list_result.insert(tk.END, "===Colocação===")
-    for idx, torre in enumerate(tower_upgrade_prior, start=1):
-        list_result.insert(tk.END, f"{idx}º: {torre}")
+    for idx, (slot, torre) in enumerate(tower_placement, start=1):
+        list_result.insert(
+            tk.END,
+            f"{idx}ª: {torre} ==|== slot {slot}"
+        )
 
     list_result.insert(tk.END, "-" * 30)
     list_result.insert(tk.END, "=== Upgrade ===")
