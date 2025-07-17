@@ -4,7 +4,8 @@ from random import choice, shuffle
 
 def tower_sorter(num_slots: int):
     from collections import Counter
-    towers = ['Arcane', 'Fire', 'Paladin', 'Viking', 'Archer', 'Rifler', 'BB', 'Tesla']
+    towers = ['Archer','Soldier']
+    #towers = ['Arcane', 'Fire', 'Paladin', 'Viking', 'Archer', 'Rifler', 'BB', 'Tesla']
 
     raw = [choice(towers) for _ in range(num_slots)]
 
