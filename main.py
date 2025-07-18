@@ -1,18 +1,22 @@
 import tkinter as tk
 from tower_logic import tower_sorter
-import os
+import os, sys
 import json
 from tkinter import ttk
 import random
 
-BASE_DIR = os.path.dirname(__file__)
-CK_PATH = os.path.join(BASE_DIR, "checkpoint.json")
-json_path = os.path.join(BASE_DIR, "stages.json")
+if getattr(sys, 'frozen', False):
+    BASE_DIR = sys._MEIPASS
+else:
+    BASE_DIR = os.path.dirname(__file__)
+
+CK_PATH     = os.path.join(BASE_DIR, "checkpoint.json")
+json_path   = os.path.join(BASE_DIR, "stages.json")
+heroes_path = os.path.join(BASE_DIR, "heroes.json")
 
 with open(json_path, encoding="utf-8") as f:
     STAGES = json.load(f)
-
-with open(os.path.join(BASE_DIR, "heroes.json"), encoding="utf-8") as f:
+with open(heroes_path, encoding="utf-8") as f:
     HEROES = json.load(f)
 
 def sort_display():
